@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ID=($id -u)
+
+if [ $ID -ne 0 ]
+then
+    echo  -e "$R ERROR: plese run script with root user $N"
+    exit 1
+else
+    echo "you are root user"
+fi
+
+echo "All argments paased: $@"
+
+    

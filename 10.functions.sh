@@ -1,27 +1,27 @@
 #!/bin/bash
 
-ID=$(id -u)
+ID=($id -u)
+echo "script name: $0"
 
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo "ERROR: $2 Installing is failed"
+        echo " $2  is failed"
         exit 1
     else
-        echo "$2 Installing is success"
-fi
+        echo "$2  is sucess"    
 }
 
 if [ $ID -ne 0 ]
 then
-    echo "ERROR: Please run this script with root access"
+    echo "ERROR: please run script with root user"
     exit 1
 else
-    echo "you are root user"
+    echo "You are root user"
 fi
+ yum insatll mysql -y
 
-yum install mysql -y
-VALIDATE $? "installing mysql"
+ VALIDATE $? "installing mysql"
+ yum install git -y
 
-yum install git -y
-VALIDATE $? "installing git"
+ VALIDATE $? "installing git"
