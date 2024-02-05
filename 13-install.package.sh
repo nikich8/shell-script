@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ID=($id -u)
+ID=$(id -u)
 
 R="\e[31m"
 G="\e[32m"
@@ -11,8 +11,6 @@ TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 echo "script started exicuting at $TIMESTAMP" &>> $LOGFILE
 
-
-if [ $ID -ne 0 ]
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
@@ -22,6 +20,8 @@ VALIDATE(){
         echo -e "$2...$G SUCEESS $N"
     fi      
 }
+
+if [ $ID -ne 0 ]
 then
     echo  -e "$R ERROR: plese run script with root user $N"
     exit 1
