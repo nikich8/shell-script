@@ -4,11 +4,12 @@ ID=$(id -u)
 
 VALIDATE(){
     
-    if [ $? -ne 0 ]
+    if [ $1 -ne 0 ]
     then
-        echo "ERROR: installaion is failed"
+        echo "ERROR: $2.....installaion is failed"
+        exit 1
     else
-        echo "installation success"
+        echo "$2....installation success"
     fi 
 }
 
@@ -23,6 +24,7 @@ else
 fi 
 
 yum install git -y
-     
+VALIDATE $? "GIT"     
 
 yum install docker -y
+VALIDATE $? "Docker"
