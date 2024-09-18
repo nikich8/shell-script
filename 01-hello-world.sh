@@ -24,7 +24,7 @@ else
 fi 
 
 yum install git -y
-VALIDATE $? "GIT"     
+VALIDATE $? "Installing GIT"     
 
 yum install docker -y
-VALIDATE $? "Docker"
+VALIDATE $? "Installing Docker"
