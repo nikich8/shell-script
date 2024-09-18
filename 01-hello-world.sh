@@ -1,6 +1,8 @@
 #!/bin/bash
 
 ID=$(id -u)
+TIMESTAPE=$(date +%F-%H-%M-%S)
+LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
 VALIDATE(){
     
@@ -23,8 +25,8 @@ else
 
 fi 
 
-yum install git -y
-VALIDATE $? "Installing GIT"     
+yum install git -y &>> $LOGFILE
+VALIDATE $? "Installing GIT"  
 
-yum install docker -y
+yum install docker -y &>> $LOGFILE
 VALIDATE $? "Installing Docker"
