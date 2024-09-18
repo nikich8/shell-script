@@ -1,6 +1,17 @@
 #!/bin/bash
 
 ID=$(id -u)
+
+VALIDATE(){
+    
+    if [ $? -ne 0 ]
+    then
+        echo "ERROR: installaion is failed"
+    else
+        echo "installation success"
+    fi 
+}
+
 if [ $ID -ne 0 ]
 then
     echo "ERROR: Please run with root account"
@@ -12,18 +23,6 @@ else
 fi 
 
 yum install git -y
+     
 
-if [ $? -ne 0 ]
-then
-    echo "ERROR: git installaion is failed"
-else
-    echo "git installation success"
-fi      
-
-yum install dockerrrr -y
-if [ $? -ne 0 ]
-then
-    echo "ERROR: git installaion is failed"
-else
-    echo "git installation success"
-fi 
+yum install docker -y
